@@ -5,6 +5,8 @@
  */
 package modelo;
 
+import datos.Persona;
+
 /**
  *
  * @author joan.penna
@@ -13,7 +15,7 @@ public class OperacionesCola {
 
     public static <T extends Base> Cola<T> colaDuplicada(Cola<T> colaOriginal) {
 
-        Cola<T> piladuplicada = new Cola<>();
+        Cola<T> coladuplicada = new Cola<>();
         Cola<T> pilaaux = new Cola<>();
 
         while (!colaOriginal.estaVacia()) {
@@ -26,9 +28,22 @@ public class OperacionesCola {
             T copiaelemento = (T) elemento.copy();
 
             colaOriginal.encolar(elemento);
-            piladuplicada.encolar(copiaelemento);
+            coladuplicada.encolar(copiaelemento);
         }
-        return piladuplicada;
+        return coladuplicada;
     }
-    
+
+    public static <T extends Base> Cola<T> filtarInicial(Cola<T> colaOriginal) {
+        Cola<T> colaD = colaDuplicada(colaOriginal);
+        Cola<T> colaFiltrada = new Cola<>();
+        while (!colaD.estaVacia()) {
+            T elemento = colaD.desencolar();
+            Persona objP = (Persona) elemento;
+            String nombre = objP.getNombre();
+            if (nombre.charAt(0) == 'D') {
+                colaFiltrada.encolar(elemento);
+            }
+        }
+        return colaFiltrada;
+    }
 }
