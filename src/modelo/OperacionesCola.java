@@ -16,15 +16,15 @@ public class OperacionesCola {
     public static <T extends Base> Cola<T> colaDuplicada(Cola<T> colaOriginal) {
 
         Cola<T> coladuplicada = new Cola<>();
-        Cola<T> pilaaux = new Cola<>();
+        Cola<T> colaaux = new Cola<>();
 
         while (!colaOriginal.estaVacia()) {
             T elemento = colaOriginal.desencolar();
-            pilaaux.encolar(elemento);
+            colaaux.encolar(elemento);
 
         }
-        while (!pilaaux.estaVacia()) {
-            T elemento = pilaaux.desencolar();
+        while (!colaaux.estaVacia()) {
+            T elemento = colaaux.desencolar();
             T copiaelemento = (T) elemento.copy();
 
             colaOriginal.encolar(elemento);

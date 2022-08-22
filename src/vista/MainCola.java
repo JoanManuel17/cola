@@ -28,13 +28,16 @@ public class MainCola {
         colaC.encolar(new Persona("David", "312", "uao"));
         colaC.encolar(new Persona("Laura", "316", "uao"));
 
-        System.out.println("Pila \n" + colaC.toString());
-
+        System.out.println("Cola \n" + colaC.toString());
+/*
         colaC.desencolar();
-        System.out.println("Pila \n"+ colaC.toString());
-        
+        System.out.println("Cola \n"+ colaC.toString());
+*/      
         Cola<Persona> pd = OperacionesCola.colaDuplicada(colaC);
         System.out.println("Cola Duplicada\n" + pd.toString());
+        
+         Cola<Persona> fI = OperacionesCola.filtarInicial(colaC);
+        System.out.println("Cola Filtrada\n" + fI);
 
     }
 

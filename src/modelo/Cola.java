@@ -10,6 +10,7 @@ import java.util.LinkedList;
 /**
  *
  * @author JOAN
+ * @param <T>
  */
 public class Cola<T extends Base> {
 
@@ -34,15 +35,7 @@ public class Cola<T extends Base> {
 
     @Override
     public String toString() {
-
-        StringBuilder sb = new StringBuilder("[");
-        for (T e : tope) {
-
-            sb.append(" ").append(e.toString() + "\n");
-        }
-        sb.append("]");
-
-        return sb.toString();
+        return "Cola{" + "tope=" + tope + '}';
     }
 
 }
